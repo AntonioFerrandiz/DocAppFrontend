@@ -1,0 +1,47 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.login-container{
+    padding: 2rem 1.5rem;
+    background-color: #FFF;
+    max-width: fit-content;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: .75rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.login-container-header{
+    padding-bottom: 1.5rem;
+}
+.login-container-header h3{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2rem;
+    color: #121212;
+    margin-bottom: .4rem;
+}
+
+.login-container-header span{
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.login-container-actions{
+    padding-top: .5rem;
+}
+.login-container-actions button{
+    width: 100%;
+    border: none;
+    letter-spacing: 1px;
+    background-color: #5C7AEA;
+    color: #FFF;
+    font-size: 1rem;
+    border-radius: .25rem;
+    padding: .45rem 0;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.login-input{
+    width: 20rem;
+}

@@ -1,0 +1,7 @@
+.c{
+    display: flex;
+    justify-content: center;
+}
+.c mat-spinner{
+    filter: invert(43%) sepia(75%) saturate(1164%) hue-rotate(208deg) brightness(104%) contrast(101%);
+}

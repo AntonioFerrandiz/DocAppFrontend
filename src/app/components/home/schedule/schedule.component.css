@@ -1,0 +1,79 @@
+.container-schedule {
+    min-height: 75vh;
+    padding: 2rem;
+}
+
+.actual-page {
+    color: #9D9D9D;
+    font-size: .75rem;
+    letter-spacing: 1px;
+}
+
+.options-buttons{
+    width: 100%;
+    background-color: #FFF;
+    padding: .5rem;
+    margin: 1.5rem 0;
+}
+.container-button{
+    margin: 1.5rem 0;
+}
+.search-btn{
+    background-color: #94B3FD;
+    color: #FFF;
+    padding: 0rem 2rem;
+    margin: 0 0 0 .75rem;
+}
+.add-btn{
+    background-color: #94B3FD;
+    color: #FFF;
+    padding: 0rem 2.5rem;
+}
+
+.appointmentTable {
+    width: 100%;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.active {
+    background: #59CE8F !important;
+    color: #FFF;
+}
+
+.canceled {
+    background: #E64848 !important;
+    color: #FFF;
+}
+
+.inProgress {
+    background: #FFB562 !important;
+    color: #FFF;
+}
+.finished{
+    background: #121212 !important;
+    color: #FFF;
+}
+
+.appointment-patient-fullname{
+    font-size: 1rem;
+}
+.appointment-day {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.appointment-month {
+    text-align: center;
+    font-size: .85rem;
+}
+.appointment-time{
+    font-size: 1rem;
+}
+
+mat-chip-list {
+    display: inline-block !important;
+}
+
+th.mat-header-cell {
+    text-align: center !important;
+}

@@ -1,0 +1,47 @@
+<div style=" background-color:#E5ECF4">
+    <div class="container">
+        <div class="login-container">
+            <div class="login-container-header">
+                <h3>DocApp</h3>
+                <span>Login</span>
+            </div>
+            <form autocomplete="off" [formGroup]="login" #formDirective="ngForm" (ngSubmit)="userLogin(formDirective)">
+                <div class="login-form">
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" class="login-input">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="text" formControlName="email">
+                                <mat-error *ngIf="login.get('email').hasError('required') &&
+                                                  login.get('email').touched">
+                                    Ingresa tu email.
+                                </mat-error>
+                                <mat-error *ngIf="login.get('email').hasError('email') &&
+                                login.get('email').touched">
+                                    Formato incorrecto de email.
+                                </mat-error>
+
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" class="login-input">
+                                <mat-label>Contraseña</mat-label>
+                                <input matInput type="password" formControlName="password">
+                                <mat-error *ngIf="login.get('password').hasError('required') &&
+                                                  login.get('password').touched">
+                                    Ingresa tu contraseña.
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="login-container-actions">
+                        <button type="submit" [disabled]="login.invalid">LOGIN</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+
+    background: url('../../../../../assets/svg/clock.svg') no-repeat;
+
+}
+
+.btn-cancel{
+    background-color: #F05454;
+    color:#FFF;
+    margin: 0 1rem 0 0;
+}

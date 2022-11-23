@@ -1,0 +1,47 @@
+<mat-card-title class="text-center mb-4 mt-3">Nueva cita</mat-card-title>
+
+<mat-card-content>
+    <form autocomplete="off" class="text-center" [formGroup]="newAppointment" #formDirective="ngForm" (ngSubmit)="addAppointment(formDirective)">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Busca un paciente</mat-label>
+                    <input matInput type="text" [formControl]="patient" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let p of filteredOptions  | async" [value]="p">
+                            {{ p }}
+                        </mat-option>
+                    </mat-autocomplete>
+
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="appointmentDate" >
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Hora de inicio</mat-label>
+                    <input matInput type="time" formControlName="appointmentStartTime">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Hora de finalización</mat-label>
+                    <input matInput type="time" formControlName="appointmentEndTime">
+                </mat-form-field>
+            </div>
+        </div>
+        <button mat-raised-button mat-dialog-close class="btn-cancel" >Cancelar</button>
+        <!-- <button mat-raised-button type="submit" [disabled]="newAppointment.invalid">Agregar</button> -->
+        <button mat-raised-button type="submit">Agregar</button>
+        
+    </form>
+</mat-card-content>

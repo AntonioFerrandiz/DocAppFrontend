@@ -1,0 +1,65 @@
+<div style="background-color: #E5ECF4; min-height: 93vh;">
+    <div class="container">
+        <div class="container-dashboard">
+            <p class="actual-page">Home / Dashboard</p>
+            <h2 class="container-title">Hola <span>{{ user['fullname'] }}</span>, bienvenido de vuelta!</h2>
+            <div class="row mb-4">
+                <div class="col">
+                    <mat-card>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <mat-card-subtitle class="card-subtitle">{{ totalPatients }}</mat-card-subtitle>
+                                    <mat-card-title>Pacientes</mat-card-title>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col">
+                    <mat-card>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <mat-card-subtitle class="card-subtitle">{{ totalMedicalHistories }}
+                                    </mat-card-subtitle>
+                                    <mat-card-title>Historiales médicos</mat-card-title>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="chart">
+                        <canvas baseChart
+                                [data]="pieChartData"
+                                [type]="pieChartType"
+                                [options]="pieChartOptions"
+                                [plugins]="pieChartPlugins"
+                                >
+                        </canvas>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="appointments-container">
+                        <div class="appointments-body">
+                            <div class="calendar-icon-container">
+                                <i class="bi bi-calendar-fill "></i>
+                            </div>
+                            <h4># Citas</h4>
+                            <p>Programadas para hoy</p>
+                            <div class="appointments-buttons">
+                                <button mat-button class="btn">ABRIR AGENDA</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

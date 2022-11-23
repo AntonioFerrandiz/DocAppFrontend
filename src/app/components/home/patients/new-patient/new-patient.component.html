@@ -1,0 +1,66 @@
+<mat-card-title class="text-center mb-4 mt-3">New Patient</mat-card-title>
+<mat-card-content>
+    <form autocomplete="off" class="text-center" [formGroup]="newPatient" #formDirective="ngForm" (ngSubmit)="addPatient(formDirective)">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" class="newpatient-form">
+                    <mat-label>Firstname</mat-label>
+                    <input matInput type="text" formControlName="name">
+                    <mat-error class="patient-error"
+                        *ngIf="newPatient.get('name').hasError('required') && newPatient.get('name').touched">
+                        Firstname is required</mat-error>
+                    <mat-error class="patient-error"
+                        *ngIf="newPatient.get('name').hasError('minlength') && newPatient.get('name').touched">
+                        The first name must have a minimum of 3 characters</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="newpatient-form">
+                    <mat-label>Lastname</mat-label>
+                    <input matInput type="text" formControlName="lastname">
+                    <mat-error class="patient-error"
+                        *ngIf="newPatient.get('lastname').hasError('required') && newPatient.get('lastname').touched">
+                        Lastname is required</mat-error>
+                    <mat-error class="patient-error"
+                        *ngIf="newPatient.get('lastname').hasError('minlength') && newPatient.get('lastname').touched">
+                        The last name must have a minimum of 3 characters</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" class="newpatient-form">
+                    <mat-label>Phone number</mat-label>
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <input matInput type="text" formControlName="numberPhone" pattern="^[0-9]*$">
+                    <mat-error class="patient-error"
+                        *ngIf="newPatient.get('numberPhone').hasError('required') && newPatient.get('numberPhone').touched">
+                        Phonenumber is required</mat-error>
+                    <mat-error class="patient-error"
+                        *ngIf="newPatient.get('numberPhone').hasError('pattern') && newPatient.get('numberPhone').touched">
+                        Enter only numbers</mat-error>
+                    <mat-error class="patient-error"
+                        *ngIf="newPatient.get('numberPhone').hasError('maxlength') && newPatient.get('numberPhone').touched">
+                        The phone number must have a maximum of 9 characters</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="newpatient-form">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender">
+                        <mat-option value="Masculino">Masculino</mat-option>
+                        <mat-option value="Femenino">Femenino</mat-option>
+                    </mat-select>
+                    <mat-error class="patient-error"
+                        *ngIf="newPatient.get('gender').hasError('required') && newPatient.get('gender').touched">
+                        Gender is required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <mat-card-actions>
+            
+            <button mat-raised-button mat-dialog-close style="background-color: #F05454; color: #FFF;">Cancelar</button>
+            <button mat-raised-button type="submit" [disabled]="newPatient.invalid">Agregar</button>
+        </mat-card-actions>
+    </form>
+</mat-card-content>

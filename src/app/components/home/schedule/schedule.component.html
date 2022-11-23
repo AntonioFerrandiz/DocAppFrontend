@@ -1,0 +1,72 @@
+<div style="background-color: #E5ECF4; min-height: 93vh;">
+    <div class="container">
+        <div class="container-schedule">
+            <p class="actual-page">Home / Schedule</p>
+            <div class="container-button">
+                <button mat-raised-button class="add-btn" (click)="openDialog()">Nueva Cita</button>
+            </div>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 appointmentTable">
+
+                <ng-container matColumnDef="patientInfo">
+                    <th mat-header-cell *matHeaderCellDef> Paciente </th>
+                    <td mat-cell *matCellDef="let i"> <span
+                            class="appointment-patient-fullname">{{i.patientFullName}}</span> </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Estado </th>
+                    <td mat-cell *matCellDef="let i">
+                        <ng-template [ngIf]="i.statusAppointment == 'ACTIVO'">
+                            <mat-chip-list>
+                                <mat-chip class="active">Activo</mat-chip>
+                            </mat-chip-list>
+                        </ng-template>
+                        <ng-template [ngIf]="i.statusAppointment == 'EN_CURSO'">
+                            <mat-chip-list>
+                                <mat-chip class="inProgress">En curso</mat-chip>
+                            </mat-chip-list>
+                        </ng-template>
+                        <ng-template [ngIf]="i.statusAppointment == 'FINALIZADO'">
+                            <mat-chip-list>
+                                <mat-chip class="finished">Finalizado</mat-chip>
+                            </mat-chip-list>
+                        </ng-template>
+                        <ng-template [ngIf]="i.statusAppointment == 'CANCELADO'">
+                            <mat-chip-list>
+                                <mat-chip class="canceled">Cancelado</mat-chip>
+                            </mat-chip-list>
+                        </ng-template>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Día </th>
+                    <td mat-cell *matCellDef="let i">
+                        <div class="appointment-day">
+                            <span>{{i.appointmentDate.split('/')[0]}}</span>
+                        </div>
+                        <div class="appointment-month">
+                            <span>{{ months[i.appointmentDate.split('/')[1]-1]}}</span>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="timeStart">
+                    <th mat-header-cell *matHeaderCellDef> Hora </th>
+                    <td mat-cell *matCellDef="let i"> <span class="appointment-time">{{i.appointmentStartTime}} <b>-</b>
+                            {{i.appointmentEndTime}} </span> </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                    <td mat-cell *matCellDef="let i"> {{i.symbol}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns" class="text-center"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="text-center"></tr>
+            </table>
+
+        </div>
+    </div>
+</div>

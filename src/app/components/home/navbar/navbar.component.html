@@ -1,0 +1,48 @@
+<div class="side-nav-container" [class.is-mobile]="mobileQuery.matches">
+    <mat-toolbar class="toolbar" (click)="closeDialog()">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="app-name">Doc App</h1>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0" >
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <mat-nav-list (click)="closeDialog()">
+                <div class="profileCard">
+                    <mat-card>
+                        <mat-card-header>
+                            <img mat-card-avatar class="header-image" src="/assets/img/doc.png"> 
+                            <mat-card-title class="profile-name">{{ user['fullname'] }}</mat-card-title>
+                            
+                        </mat-card-header>
+                    </mat-card>
+                </div>
+                <mat-list-item routerLink = "/home">
+                    <mat-icon mat-list-icon>home</mat-icon>
+                    <span>Home</span>
+                </mat-list-item>
+                
+                <mat-list-item routerLink = "/patients">
+                    <mat-icon mat-list-icon>perm_contact_calenda</mat-icon>
+                    <span>Pacientes</span>
+                </mat-list-item>
+                <mat-list-item routerLink="/schedule">
+                    <mat-icon mat-list-icon>calendar_today</mat-icon>
+                    <span>Agenda</span>
+                </mat-list-item>
+                <mat-list-item (click)="logout()">
+                    <mat-icon mat-list-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </mat-list-item>
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+

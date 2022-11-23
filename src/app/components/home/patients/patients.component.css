@@ -1,0 +1,64 @@
+.search-container{
+    background-color: #FFF;
+    padding: 3rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+.search-container-title{
+    
+    font-family: 'Ubuntu', sans-serif !important;
+    border-left: 3px solid #94B3FD;
+    padding-left: .75rem;
+}
+.search-input{
+    width: 100%;
+    
+}
+.actual-page{
+    font-family: 'Ubuntu', sans-serif;
+    color: #9D9D9D;
+    font-size: .75rem;
+    letter-spacing: 1px;
+}
+.search-button{
+    width: 15rem;
+    background-color: #5C7AEA;
+    color: #FFF;
+}
+.newPatient-container{
+    text-align: center;
+    padding-bottom: 2rem;
+}
+.new-button{
+    background-color: #5C7AEA;
+    color: #FFF;
+    padding: 0rem 5rem;
+}
+.col-center{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.gender-icon{
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fa-male{
+    color: #5C7AEA;
+}
+.fa-female{
+    color: #FF87CA;
+}
+.patient-register h4{
+    margin-bottom: 0;
+}
+.medicalH-button{
+    color: #fff;
+    background-color: #5C7AEA;
+}
+.settings-button{
+    background-color: #57CC99;
+    color: #fff;
+}

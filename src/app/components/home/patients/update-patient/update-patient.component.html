@@ -1,0 +1,66 @@
+<mat-card-title class="text-center mb-4 mt-3">Actualizar Paciente</mat-card-title>
+<mat-card-content>
+    <form autocomplete="off" class="text-center" [formGroup]="updatePatient" #formDirective="ngForm" (ngSubmit)="submitPatient(formDirective)">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" class="updatepatient-form">
+                    <mat-label>Firstname</mat-label>
+                    <input matInput type="text" formControlName="name" >
+                    <mat-error class="patient-error"
+                        *ngIf="updatePatient.get('name').hasError('required') && updatePatient.get('name').touched">
+                        Firstname is required</mat-error>
+                    <mat-error class="patient-error"
+                        *ngIf="updatePatient.get('name').hasError('minlength') && updatePatient.get('name').touched">
+                        The first name must have a minimum of 3 characters</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="updatepatient-form">
+                    <mat-label>Lastname</mat-label>
+                    <input matInput type="text" formControlName="lastname" >
+                    <mat-error class="patient-error"
+                        *ngIf="updatePatient.get('lastname').hasError('required') && updatePatient.get('lastname').touched">
+                        Lastname is required</mat-error>
+                    <mat-error class="patient-error"
+                        *ngIf="updatePatient.get('lastname').hasError('minlength') && updatePatient.get('lastname').touched">
+                        The last name must have a minimum of 3 characters</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" class="updatepatient-form">
+                    <mat-label>Phone number</mat-label>
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <input matInput type="text" formControlName="numberPhone" pattern="^[0-9]*$">
+                    <mat-error class="patient-error"
+                        *ngIf="updatePatient.get('numberPhone').hasError('required') && updatePatient.get('numberPhone').touched">
+                        Phonenumber is required</mat-error>
+                    <mat-error class="patient-error"
+                        *ngIf="updatePatient.get('numberPhone').hasError('pattern') && updatePatient.get('numberPhone').touched">
+                        Enter only numbers</mat-error>
+                    <mat-error class="patient-error"
+                        *ngIf="updatePatient.get('numberPhone').hasError('maxlength') && updatePatient.get('numberPhone').touched">
+                        The phone number must have a maximum of 9 characters</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="updatepatient-form" >
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender" >
+                        <mat-option value="Masculino">Masculino</mat-option>
+                        <mat-option value="Femenino">Femenino</mat-option>
+                    </mat-select>
+                    <mat-error class="patient-error"
+                        *ngIf="updatePatient.get('gender').hasError('required') && updatePatient.get('gender').touched">
+                        Gender is required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <mat-card-actions>
+            
+            <button mat-raised-button mat-dialog-close style="background-color: #F05454; color: #FFF;">Cancelar</button>
+            <button mat-raised-button type="submit" [disabled]="updatePatient.invalid">Guardar</button>
+        </mat-card-actions>
+    </form>
+</mat-card-content>

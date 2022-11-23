@@ -1,0 +1,27 @@
+h2{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+.form-input{
+    width: 100%;
+}
+mat-dialog-container{
+    margin: 1rem !important;
+}
+.mat-dialog-container{
+    margin: 1rem !important;
+}
+mat-card-actions{
+    margin-bottom: 0;
+}
+mat-card-actions button{
+    width: 5rem;
+}
+.cancel-btn{
+    background-color: #F05454;
+    color: #FFF;
+}
+.add-btn{
+    background-color: #5C7AEA;
+    color: #FFF
+}
